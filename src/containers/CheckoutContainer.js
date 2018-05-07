@@ -4,13 +4,16 @@ import { connect } from "react-redux";
 
 import AdCard from "../components/adCards";
 import Checkout from "../components/checkout";
+import { checkoutWrapper } from "./CheckoutContainer.styles";
 
 class CheckoutContainer extends PureComponent {
   render() {
     return (
       <div>
         <AdCard {...this.props} />
-        <Checkout {...this.props} />
+        <checkoutMainWrapper>
+          <Checkout {...this.props} />
+        </checkoutMainWrapper>
       </div>
     );
   }

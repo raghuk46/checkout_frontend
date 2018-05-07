@@ -1,17 +1,6 @@
-import React, { PureComponent } from "react";
+import styled from "styled-components";
 
-import { Wrapper } from "./LoginContainer.styles";
-
-import Login from "../components/login";
-
-class CheckoutContainer extends PureComponent {
-  render() {
-    return (
-      <Wrapper>
-        <Login />
-      </Wrapper>
-    );
-  }
-}
-
-export default CheckoutContainer;
+export const checkoutMainWrapper = styled.div`
+  width: 80px;
+  padding: 30px;
+`;
