@@ -37,10 +37,18 @@ class Checkout extends PureComponent {
     let newPrice = price;
     const validateRule = _.map(pricerules, (item, i) => {
       if (_.includes(item.jobads, id)) {
-        if (item.ruleType === "discount" && count >= item.min_ads) {
-          newPrice = item.price_after_discount * count;
-        } else if (item.ruleType === "deal" && count >= item.min_ads) {
-          newPrice = (count - item.free_ads) * price;
+        if (item.ruleType === "discount") {
+          if (count >= item.min_ads) {
+            newPrice = item.price_after_discount * count;
+          } else {
+            newPrice = price * count;
+          }
+        } else if (item.ruleType === "deal") {
+          if (count >= item.min_ads) {
+            newPrice = (count - item.free_ads) * price;
+          } else {
+            newPrice = price * count;
+          }
         }
       } else {
         newPrice = price * count;
